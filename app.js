@@ -14,11 +14,11 @@ var myConnection  = require('express-myconnection')
  */ 
 var config = require('./config')
 var dbOptions = {
-	host:	  config.database.host,
-	user: 	  config.database.user,
-	password: config.database.password,
-	port: 	  config.database.port, 
-	database: config.database.db
+    host:	  config.database.host,
+    user: 	  config.database.user,
+    password: config.database.password,
+    port: 	  config.database.port,
+    database: config.database.db
 }
 /**
  * 3 strategies can be used
@@ -40,13 +40,11 @@ app.set('view engine', 'ejs')
 var index = require('./routes/index')
 var postings = require('./routes/postings')
 
-
 /**
  * Express Validator Middleware for Form Validation
  */ 
 var expressValidator = require('express-validator')
 app.use(expressValidator())
-
 
 /**
  * body-parser module is used to read HTTP POST data
@@ -61,7 +59,6 @@ var bodyParser = require('body-parser')
  */ 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
 
 /**
  * This module let us use HTTP verbs such as PUT or DELETE 
@@ -104,7 +101,6 @@ app.use(session({
 	cookie: { maxAge: 60000 }
 }))
 app.use(flash())
-
 
 app.use('/', index)
 app.use('/postings', postings)
