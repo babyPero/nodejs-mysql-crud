@@ -11,19 +11,19 @@ including header content which is common for all pages
 	<p style="color:green"><%- messages.success %></p>
 <% } %>
 
-<form action="/users/edit/<%= id %>" method="post" name="form1">
+<form action="/postings/edit/<%= job_id %>" method="post" name="form1">
 	<table width="25%" border="0">
 		<tr> 
-			<td>Name</td>
-			<td><input type="text" name="name" id="name" value="<%= name %>" /></td>
+			<td>Job Title</td>
+			<td><input type="text" name="job_title" id="job_title" value="<%= job_title %>" /></td>
 		</tr>
 		<tr> 
-			<td>Age</td>
-			<td><input type="text" name="age" value="<%= age %>" /></td>
+			<td>Job Description</td>
+			<td><input type="text" name="job_description" value="<%= job_description %>" /></td>
 		</tr>
 		<tr> 
-			<td>Email</td>
-			<td><input type="text" name="email" value="<%= email %>" /></td>
+			<td>Location</td>
+			<td><input type="text" name="location" value="<%= location %>" /></td>
 		</tr>
 		<tr> 
 			<td></td>
