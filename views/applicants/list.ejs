@@ -42,7 +42,7 @@ including header content which is common for all pages
 			<td><%= applicant.email %></td>
 			<td><%= applicant.phone %></td>
 			<td><%= applicant.job_id %></td>
-			<td><%= applicant.applied_date %></td>
+			<td><%= applicant.applied_date.toUTCString().split(' ').slice(0, 5).join(' ')%></td>
 			<td>
 			<div class="btn-group" role="group" aria-label="Basic example">
 				<button type="button" class="btn btn-light"><a href='/applicants/edit/<%= applicant.applicant_id %>'>Edit</button>
