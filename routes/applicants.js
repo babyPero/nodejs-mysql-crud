@@ -31,7 +31,9 @@ app.get('/add', function(req, res, next){
 	title: 'Apply',
 	job_id: req.query.job_id,
 	first_name: '',
-	last_name: ''
+	last_name: '',
+	email: '',
+	phone: ''
     })
 })
 
@@ -57,6 +59,9 @@ app.post('/add', function(req, res, next){
 	    applicant_id: null,
 	    first_name: req.sanitize('first_name').escape().trim(),
 	    last_name: req.sanitize('last_name').escape().trim(),
+	    email: req.sanitize('email').escape().trim(),
+	    phone: req.sanitize('phone').escape().trim(),
+	    job_id: req.body.job_id
 	}
 
 	req.getConnection(function(error, conn) {
@@ -68,9 +73,11 @@ app.post('/add', function(req, res, next){
 		    // render to views/applicants/add.ejs
 		    res.render('applicants/add', {
 			title: 'Apply',
-			job_id:	req.body.job_id,
 			first_name: applicant.first_name,
 			last_name: applicant.last_name,
+			email:  applicant.email,
+			phone:  applicant.phone,
+			job_id:	req.body.job_id,
 		    })
 		} else {				
 		    req.flash('success', 'Data added successfully!')
@@ -79,7 +86,9 @@ app.post('/add', function(req, res, next){
 			title: 'Apply',
 		        job_id:	req.body.job_id,
 			first_name: '',
-			last_name: ''
+			last_name: '',
+			email: '',
+			phone: ''
 		    })
 		}
 	    })
@@ -98,9 +107,11 @@ app.post('/add', function(req, res, next){
 	 */ 
         res.render('applicants/add', {
             title: 'Apply',
-	    job_id: req.body.job_id,
             first_name: req.body.first_name,
-            last_name: req.body.last_name
+            last_name: req.body.last_name,
+	    email: req.body.email,
+	    phone: req.body.phone,
+	    job_id: req.query.job_id
         })
     }
 })
@@ -122,7 +133,9 @@ app.get('/edit/(:applicant_id)', function(req, res, next){
 		    //data: rows[0],
 		    applicant_id: rows[0].applicant_id,
 		    first_name: rows[0].first_name,
-		    last_name: rows[0].last_name
+		    last_name: rows[0].last_name,
+		    email: rows[0].email,
+		    phone: rows[0].phone
 		})
 	    }			
 	})
@@ -150,7 +163,9 @@ app.put('/edit/(:applicant_id)', function(req, res, next) {
 	var applicant = {
 	    //job_id: null,
 	    first_name: req.sanitize('first_name').escape().trim(),
-	    last_name: req.sanitize('last_name').escape().trim()
+	    last_name: req.sanitize('last_name').escape().trim(),
+            email: req.sanitize('email').escape().trim(),
+            phone: req.sanitize('phone').escape().trim()
 	}
 
 	req.getConnection(function(error, conn) {
@@ -164,7 +179,9 @@ app.put('/edit/(:applicant_id)', function(req, res, next) {
 			title: 'Edit Applicants',
 			applicant_id: req.body.applicant_id,
 			first_name: req.body.first_name,
-			last_name: req.body.last_name
+			last_name: req.body.last_name,
+                        email: req.body.email,
+                        phone: req.body.phone
 		    })
 		} else {
 		    req.flash('success', 'Data updated successfully!')
@@ -174,7 +191,9 @@ app.put('/edit/(:applicant_id)', function(req, res, next) {
 			title: 'Edit Applicants',
 			applicant_id: req.body.applicant_id,
 			first_name: req.body.first_name,
-			last_name: req.body.last_name
+			last_name: req.body.last_name,
+			email: req.body.email,
+                        phone: req.body.phone
 		    })
 		}
 	    })
@@ -195,7 +214,9 @@ app.put('/edit/(:applicant_id)', function(req, res, next) {
             title: 'Edit Applicants',
 	    applicant_id: req.body.applicant_id,
 	    first_name: req.body.first_name,
-	    last_name: req.body.last_name
+	    last_name: req.body.last_name,
+	    email: req.body.email,
+            phone: req.body.phone
         })
     }
 })

@@ -17,7 +17,10 @@ including header content which is common for all pages
 	        <th>Applicant ID</th>
 	        <th>First name</th>
 		<th>Last name</th>
-		<th>Applied Jobs</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Applied Job</th>
+		<th>Applied Date</th>
 		<th>Action</th>
 	</tr>
 	
@@ -34,6 +37,9 @@ including header content which is common for all pages
 			<td><%= applicant.applicant_id %></td>
 			<td><%= applicant.first_name %></td>
 			<td><%= applicant.last_name %></td>
+			<td><%= applicant.email %></td>
+			<td><%= applicant.phone %></td>
+			<td><%= applicant.job_id %></td>
 			<td><%= applicant.applied_date %></td>
 			<td>
 				<div style="float:left">
