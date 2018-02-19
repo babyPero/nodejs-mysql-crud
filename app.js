@@ -36,9 +36,11 @@ app.set('view engine', 'ejs')
 /**
  * import routes/index.js
  * import routes/postings.js
+ * import routes/applicants.js
  */ 
 var index = require('./routes/index')
 var postings = require('./routes/postings')
+var applicants = require('./routes/applicants')
 
 /**
  * Express Validator Middleware for Form Validation
@@ -104,6 +106,7 @@ app.use(flash())
 
 app.use('/', index)
 app.use('/postings', postings)
+app.use('/applicants', applicants)
 
 app.listen(3000, function(){
 	console.log('Server running at port 3000: http://127.0.0.1:3000')

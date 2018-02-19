@@ -43,10 +43,14 @@ including header content which is common for all pages
 			<td>
 				<div style="float:left">
 					<a href='/postings/edit/<%= posting.job_id %>'>Edit</a>
-					<form method="post" action="/postings/delete/<%= posting.job_id %>" style="float:right">
-						<input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
-						<input type="hidden" name="_method" value="DELETE" />
+					<form method="post" action="/postings/delete/<%= posting.job_id %>">
+					<input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" style="float:right"/>
+					<input type="hidden" name="_method" value="DELETE"/>
 					</form>
+					<form method="get" action="/applicants/add" style="float:right"/>
+                                        <input type="submit" name="apply" value="Apply">
+					<input type="hidden" name='job_id' value="<%= posting.job_id %>">
+                                        </form>
 				</div>
 			</td>
 		</tr>
