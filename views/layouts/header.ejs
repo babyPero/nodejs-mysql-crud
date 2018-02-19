@@ -4,22 +4,30 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+
+    <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"</script>
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">-->
+
+    <!-- Bootstrap JS-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>-->
     <title><%= title %></title>
   </head>
-  <body>
-    <div>
-      <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
-	<ul class="nav navbar-nav">
-	  <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-	  <li class="active"><a href="/postings">Job List<span class="sr-only">(current)</span></a></li>
-	  <li class="active"><a href="/applicants">Applicants List<span class="sr-only">(current)</span></a></li>
-	</ul>
-      </nav>
-    </div>
 
-    <div class="container">
-      <h1><%= title %></h1>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="/"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	       <div class="navbar-nav">
+           <a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+           <a class="nav-item nav-link" href="/postings">Job Lists</a>
+           <a class="nav-item nav-link" href="/applicants">Applicants</a>
+         </div>
+       </div>
+     </nav>
+     <div class="container">
+       <h1><%= title %></h1>

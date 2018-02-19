@@ -9,30 +9,32 @@ including header content which is common for all pages
 
 <% if (messages.success) { %>
 	<p style="color:green"><%- messages.success %></p>
-<% } %>	
+<% } %>
 
-<table width='80%' border=0>
+<table class="table table-hover">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">First name</th>
+			<th scope="col">Last name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Phone</th>
+			<th scope="col">Applied Job</th>
+			<th scope="col">Applied Date</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
 
-	<tr style='text-align:left; background-color:#CCC'>
-	        <th>Applicant ID</th>
-	        <th>First name</th>
-		<th>Last name</th>
-		<th>Email</th>
-		<th>Phone</th>
-		<th>Applied Job</th>
-		<th>Applied Date</th>
-		<th>Action</th>
-	</tr>
-	
 	<!--
 		Using FOREACH LOOP for the applicants array
-		
+
 		myArray.forEach(function(el, index) {
 			// el - current element, i - index
 		});
 	-->
 	<% if (data) { %>
 	<% data.forEach(function(applicant){ %>
+	<tbody>
 		<tr>
 			<td><%= applicant.applicant_id %></td>
 			<td><%= applicant.first_name %></td>
@@ -42,20 +44,19 @@ including header content which is common for all pages
 			<td><%= applicant.job_id %></td>
 			<td><%= applicant.applied_date %></td>
 			<td>
-				<div style="float:left">
-					<a href='/applicants/edit/<%= applicant.applicant_id %>'>Edit</a>
-					<form method="post" action="/applicants/delete/<%= applicant.applicant_id %>" style="float:right">
-						<input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
-						<input type="hidden" name="_method" value="DELETE" />
-					</form>
-				</div>
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<button type="button" class="btn btn-light"><a href='/applicants/edit/<%= applicant.applicant_id %>'>Edit</button>
+				<form method="post" action="/applicants/delete/<%= applicant.applicant_id %>" type="btn-group" class="btn btn-light">
+					<input type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+					<input type="hidden" name="_method" value="DELETE" />
+				</form>
+			</div>
 			</td>
 		</tr>
+		</tbody>
 	<% }) %>
 	<% } %>
-
 </table>
-
 </div><!--container class-->
 <!--
 including footer content which is common for all pages
