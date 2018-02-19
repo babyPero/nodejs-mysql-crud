@@ -3,6 +3,9 @@ var app = express()
 
 var mysql = require('mysql')
 
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
+
 /**
  * This middleware provides a consistent API 
  * for MySQL connections during request/response life cycle
@@ -108,6 +111,6 @@ app.use('/', index)
 app.use('/postings', postings)
 app.use('/applicants', applicants)
 
-app.listen(3000, function(){
-	console.log('Server running at port 3000: http://127.0.0.1:3000')
+app.listen(port, ip, function(){
+    console.log('Server running on http://%s:%s', ip, port)
 })
