@@ -4,7 +4,7 @@
   "description": "Node.js CRUD application using MySQL",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,7 +29,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/babyPero/nodejs-mysql-crud.git"
+    "url": "git+https://github.com/babyPero/nodejs-mysql-crud.git#job-postings"
   },
   "bugs": {
     "url": "https://github.com/babyPero/nodejs-mysql-crud/issues"
