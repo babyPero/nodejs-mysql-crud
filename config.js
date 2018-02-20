@@ -1,10 +1,10 @@
 var config = {
 	database: {
-		host:	  'localhost', 	// database host
-		user: 	  'mhirota', 		// your database username
-		password: 'password', 		// your database password
-		port: 	  3306, 		// default MySQL port
-		db: 	  'sampledb' 		// your database name
+		host:	  'MYSQL_SERVICE_HOST', 	// database host
+		user: 	  'MYSQL_USER', 		// database username
+		password: 'MYSQL_PASSWORD', 		// database password
+		port: 	  'MYSQL_SERVICE_PORT', 	// MySQL port
+		db: 	  'MYSQL_DATABASE' 		// database name
 	},
 	server: {
 		host: '127.0.0.1',
