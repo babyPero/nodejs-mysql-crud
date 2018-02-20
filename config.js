@@ -1,8 +1,8 @@
 var config = {
 	database: {
-		host:	  '172.30.43.191', 	// database host
-		user: 	  'MYSQL_USER', 		// database username
-		password: 'MYSQL_PASSWORD', 		// database password
+		host:	  '127.0.0.1', 	// database host
+		user: 	  'mhirota', 		// database username
+		password: 'password', 		// database password
 		port: 	  '3306', 	         // MySQL port
 		db: 	  'sampledb' 		// database name
 	},
