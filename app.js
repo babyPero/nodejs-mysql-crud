@@ -29,7 +29,7 @@ var dbOptions = {
  * pool: Creates pool of connections. Connection is auto release when response ends.
  * request: Creates new connection per new request. Connection is auto close when response ends.
  */ 
-app.use(myConnection(mysql, dbOptions, 'single'))
+app.use(myConnection(mysql, dbOptions, 'pool'))
 
 /**
  * setting up the templating view engine
