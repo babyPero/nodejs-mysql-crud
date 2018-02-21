@@ -5,24 +5,6 @@ app.get('/', function(req, res) {
     // render to views/index.ejs template file
     res.render('index', {title: 'My Node.js Application'})
 
-    var	mysqlHost = process.env.MYSQL_SERVICE_HOST
-    var	mysqlPort = process.env.MYSQL_SERVICE_PORT
-    var	mysqlPassword = process.env.MYSQL_PASSWORD
-    var	mysqlUser = process.env.MYSQL_USER
-    var	mysqlDatabase = process.env.MYSQL_DATABASE
-
-    console.log('host:' + mysqlHost)
-    console.log('port:' + mysqlPort)
-    console.log('pwd:' + mysqlPassword)
-    console.log('user:' + mysqlUser)
-    console.log('database:' + mysqlDatabase)
-
-    //console.log('_____________________________________')
-    //console.log('usrname:' + mysqlUser)
-    //console.log('database:' + mysqlDB)
-    //var mysqlServiceName = process.env.DATABASE_SERVICE_NAME
-    //console.log('service name :' + mysqlServiceName)
-
     //Database setup - create tables
     var jobpostingsDb_init = 'CREATE TABLE IF NOT EXISTS jobpostings('
 	+ 'job_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,'
