@@ -5,6 +5,19 @@ app.get('/', function(req, res) {
     // render to views/index.ejs template file
     res.render('index', {title: 'My Node.js Application'})
 
+    var mysql_host = process.env.OPENSHIFT_MYSQL_DB_HOST
+    var mysql_url = process.env.OPENSHIFT_MYSQL_DB_URL
+    var mysql_port = process.env.OPENSHIFT_MYSQL_DB_PORT
+    var mysql_usrname = process.env.OPENSHIFT_MYSQL_DB_USERNAME
+    var mysql_pwd = process.env.OPENSHIFT_MYSQL_DB_PASSWORD
+
+    console.log('_____________________________________')
+    console.log('host:' + mysql_host)
+    console.log('url:' + mysql_url)
+    console.log('port:' + mysql_port)
+    console.log('usrname:' + mysql_usrname)
+    console.log('pwd:' + mysql_pwd)
+
     //Database setup - create tables
     var jobpostingsDb_init = 'CREATE TABLE IF NOT EXISTS jobpostings('
 	+ 'job_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,'
