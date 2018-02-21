@@ -10,7 +10,8 @@ app.get('/', function(req, res) {
 	+ 'job_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,'
 	+ 'job_title VARCHAR(40) NOT NULL,'
 	+ 'job_description VARCHAR(100) NOT NULL,'
-	+ 'location VARCHAR(30) NOT NULL'
+	+ 'location VARCHAR(30) NOT NULL,'
+	+ 'posted_date TIMESTAMP NOT NULL'
 	+ ')'
 
     var applicantsDb_init = 'CREATE TABLE IF NOT EXISTS applicants('
