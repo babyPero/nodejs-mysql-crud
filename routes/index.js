@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
     //Database setup - create tables
     var jobpostingsDb_init = 'CREATE TABLE IF NOT EXISTS jobpostings('
 	+ 'job_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,'
-	+ 'job_name VARCHAR(40) NOT NULL,'
+	+ 'job_title VARCHAR(40) NOT NULL,'
 	+ 'job_description VARCHAR(100) NOT NULL,'
 	+ 'location VARCHAR(30) NOT NULL'
 	+ ')'
@@ -31,6 +31,17 @@ app.get('/', function(req, res) {
 	    } else {
 		console.log("tables created")
 	    }
+        })
+    })
+
+    req.getConnection(function(error, conn) {
+        conn.query(applicantsDb_init, function (err) {
+            if (err) {
+                console.log("error creating DB")
+                throw err
+            } else {
+                console.log("tables created")
+            }
         })
     })
 })
