@@ -18,15 +18,15 @@ app.get('/', function(req, res) {
     console.log('usrname:' + mysql_usrname)
     console.log('pwd:' + mysql_pwd)
 
-    var	mysqlHost = process.env.mysql_SERVICE_HOST
-    var	mysqlPort = process.env.mysql_SERVICE_PORT
+    var	mysqlHost = process.env.MYSQL_SERVICE_HOST
+    var	mysqlPort = process.env.MYSQL_SERVICE_PORT
     //var	mysqlDB = process.env.mysqlServiceName + '_DATABASE'
 
     console.log('host:' + mysqlHost)
     console.log('port:' + mysqlPort)
 
-    var	mysqlPassword = MYSQL_PASSWORD
-    var	mysqlUser = MYSQL_USER
+    var	mysqlPassword = process.env.MYSQL_PASSWORD
+    var	mysqlUser = process.env.MYSQL_USER
 
     console.log('_____________________________________')
     console.log('pwd:' + mysqlPassword)
