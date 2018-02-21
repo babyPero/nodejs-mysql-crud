@@ -1,6 +1,8 @@
+var mysqlURL = process.env.OPENSHIFT_MYSQL_DB_URL
+
 var config = {
 	database: {
-		host:	  '172.30.83.49', 	// database host '172.30.83.49'
+		host:	   mysqlURL, 	// database host '172.30.83.49'
 		user: 	  'mhirota', 		// database username
 		password: 'password', 		// database password
 		port: 	  '3306', 	         // MySQL port
