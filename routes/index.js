@@ -5,35 +5,23 @@ app.get('/', function(req, res) {
     // render to views/index.ejs template file
     res.render('index', {title: 'My Node.js Application'})
 
-    var mysql_host = process.env.OPENSHIFT_MYSQL_DB_HOST
-    var mysql_url = process.env.OPENSHIFT_MYSQL_DB_URL
-    var mysql_port = process.env.OPENSHIFT_MYSQL_DB_PORT
-    var mysql_usrname = process.env.OPENSHIFT_MYSQL_DB_USERNAME
-    var mysql_pwd = process.env.OPENSHIFT_MYSQL_DB_PASSWORD
-
-    console.log('_____________________________________')
-    console.log('host:' + mysql_host)
-    console.log('url:' + mysql_url)
-    console.log('port:' + mysql_port)
-    console.log('usrname:' + mysql_usrname)
-    console.log('pwd:' + mysql_pwd)
-
     var	mysqlHost = process.env.MYSQL_SERVICE_HOST
     var	mysqlPort = process.env.MYSQL_SERVICE_PORT
-    //var	mysqlDB = process.env.mysqlServiceName + '_DATABASE'
+    var	mysqlPassword = process.env.MYSQL_PASSWORD
+    var	mysqlUser = process.env.MYSQL_USER
+    var	mysqlDatabase = process.env.MYSQL_DATABASE
 
     console.log('host:' + mysqlHost)
     console.log('port:' + mysqlPort)
-
-    var	mysqlPassword = process.env.MYSQL_PASSWORD
-    var	mysqlUser = process.env.MYSQL_USER
-
-    console.log('_____________________________________')
     console.log('pwd:' + mysqlPassword)
-    console.log('usrname:' + mysqlUser)
+    console.log('user:' + mysqlUser)
+    console.log('database:' + mysqlDatabase)
+
+    //console.log('_____________________________________')
+    //console.log('usrname:' + mysqlUser)
     //console.log('database:' + mysqlDB)
-    var mysqlServiceName = process.env.DATABASE_SERVICE_NAME
-    console.log('service name :' + mysqlServiceName)
+    //var mysqlServiceName = process.env.DATABASE_SERVICE_NAME
+    //console.log('service name :' + mysqlServiceName)
 
     //Database setup - create tables
     var jobpostingsDb_init = 'CREATE TABLE IF NOT EXISTS jobpostings('
