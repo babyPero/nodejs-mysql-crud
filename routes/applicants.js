@@ -81,6 +81,8 @@ app.post('/add', function(req, res, next){
 		    })
 		} else {				
 		    req.flash('success', 'Data added successfully!')
+		    res.redirect('/applicants')
+/*
 		    // render to views/applicants/add.ejs
 		    res.render('applicants/add', {
 			title: 'Apply',
@@ -90,6 +92,7 @@ app.post('/add', function(req, res, next){
 			email: '',
 			phone: ''
 		    })
+*/
 		}
 	    })
 	})

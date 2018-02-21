@@ -66,7 +66,6 @@ app.post('/add', function(req, res, next){
 		console.log('adding new job');
 		if (err) {
 		    req.flash('error', err)
-
 		    // render to views/posting/add.ejs
 		    res.render('posting/add', {
 			title: 'Add New Job Posting',
@@ -76,7 +75,8 @@ app.post('/add', function(req, res, next){
 		    })
 		} else {				
 		    req.flash('success', 'Data added successfully!')
-
+		    res.redirect('/postings')
+/*
 		    // render to views/posting/add.ejs
 		    res.render('posting/add', {
 			title: 'Add New Job Posting',
@@ -84,6 +84,7 @@ app.post('/add', function(req, res, next){
 			job_description: '',
 			location: ''					
 		    })
+*/
 		}
 	    })
 	})
