@@ -3,10 +3,6 @@ var app = express()
 
 app.get('/', function(req, res) {
     // render to views/index.ejs template file
-    console.log('mysql user:' + $MYSQL_USER)
-    console.log('mysql pwd:' + $MYSQL_USER)
-    console.log('mysql database' + $MYSQL_DATABASE)
-
     res.render('index', {title: 'My Node.js Application'})
 
     //Database setup - create tables
