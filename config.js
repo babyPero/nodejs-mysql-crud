@@ -1,5 +1,5 @@
 var mysqlHost = process.env.MYSQL_SERVICE_HOST,
-    mysqlPort = process.env.MYSQL_SERVICE_PORT,
+    mysqlPort = process.env.MYSQL_SERVICE_PORT
 
 var config = {
 	database: {
