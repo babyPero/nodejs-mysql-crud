@@ -6,11 +6,11 @@ var mysqlHost = process.env.MYSQL_SERVICE_HOST,
 
 var config = {
     database: {
-	host:	   mysqlHost, 	// database host
-	user: 	   mysqlUser, 	// database username
-	password:  mysqlPwd, 	// database password
-	port: 	   mysqlPort,   // MySQL port
-	db: 	   mysqlDb      // database name
+	host:	   mysqlHost, 	        // database host
+	user: 	   $MYSQL_USER, 	// database username
+	password:  $MYSQL_PASSWORD, 	// database password
+	port: 	   mysqlPort,           // MySQL port
+	db: 	   $MYSQL_DATABASE      // database name
     },
     server: {
 	host: '127.0.0.1',
