@@ -23,6 +23,9 @@ var dbOptions = {
     port: 	  config.database.port,
     database: config.database.db
 }
+
+console.log(dbOptions)
+
 /**
  * 3 strategies can be used
  * single: Creates single database connection which is never closed.
