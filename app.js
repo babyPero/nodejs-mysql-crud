@@ -26,6 +26,8 @@ var dbOptions = {
 
 console.log('dbOptions--------')
 console.log(dbOptions)
+console.log('process.env--------')
+console.log(process.env)
 
 /**
  * 3 strategies can be used
