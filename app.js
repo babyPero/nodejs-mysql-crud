@@ -54,7 +54,6 @@ app.get('/', function (req, res) {
 	});
 */
     });
-*/
 });
 
 var server = app.listen(5000, function () {
