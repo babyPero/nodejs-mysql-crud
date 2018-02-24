@@ -34,11 +34,14 @@ app.get('/', function (req, res) {
     console.log('process.env-----')
     console.log(process.env)
 
-/*
     // connect to your database
     sql.connect(dbOptions, function (err) {
         if (err) console.log(err);
-
+	console.log('DB connection error')
+	else {
+	    console.log('DB connected')
+	}
+/*
         // create Request object
         var request = new sql.Request();
 
@@ -52,6 +55,7 @@ app.get('/', function (req, res) {
 	    console.log('data---------')
 	    console.log(data)
 	});
+*/
     });
 */
 });
