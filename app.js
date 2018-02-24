@@ -38,9 +38,6 @@ app.get('/', function (req, res) {
     sql.connect(dbOptions, function (err) {
         if (err) console.log(err);
 	console.log('DB connection error')
-	else {
-	    console.log('DB connected')
-	}
 /*
         // create Request object
         var request = new sql.Request();
