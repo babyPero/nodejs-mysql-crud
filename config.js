@@ -6,7 +6,7 @@ var mssqlHost = process.env.MSSQL_SERVICE_HOST,
 
 var config = {
     database: {
-	host:	   mssqlHost,      // database host
+	host:	   '127.0.0.1'     //mssqlHost,      // database host
 	user: 	   mssqlUer,       // database username
 	password:  mssqlPwd,       // database password
 	port: 	   mssqlPort,      // database port
