@@ -14,22 +14,58 @@ var myConnection  = require('express-myconnection')
 /**
  * Store database credentials in a separate config.js file
  * Load the file/module and its values
- */ 
+ */
+
+var sql = require("mssql")
 var config = require('./config')
-var dbOptions = {
-    host:	  config.database.host,
-    user: 	  config.database.user,
-    password: config.database.password,
-    port: 	  config.database.port,
-    database: config.database.db
-}
+
+app.get('/', function (req, res) {
+    // config for your database
+    var dbOptions = {
+        user:        config.database.user,
+        password:    config.database.password,
+        server:      config.database.host,
+        database:    config.database.db
+    };
+
+    console.log('dbOptions-----')
+    console.log(dbOptions)
+
+    // connect to your database
+    sql.connect(dbOptions, function (err) {
+        if (err) console.log(err);
+
+        // create Request object
+        var request = new sql.Request();
+
+        // query to the database and get the records
+        request.query('select * from sampledb', function (err, data) {
+
+            if (err) console.log(err)
+
+            // send records as a response
+            //res.send(data);
+	    console.log('data---------')
+	    console.log(data)
+	});
+    });
+});
+
+var server = app.listen(5000, function () {
+    console.log('Server is running..');
+});
+
+app.listen(port, ip, function(){
+    console.log('Server running on http://%s:%s', ip, port)
+})
+
 /**
  * 3 strategies can be used
  * single: Creates single database connection which is never closed.
  * pool: Creates pool of connections. Connection is auto release when response ends.
  * request: Creates new connection per new request. Connection is auto close when response ends.
  */ 
-app.use(myConnection(mysql, dbOptions, 'pool'))
+//app.use(myConnection(mysql, dbOptions, 'pool'))
 
 /**
  * setting up the templating view engine
@@ -111,6 +147,8 @@ app.use('/', index)
 app.use('/postings', postings)
 app.use('/applicants', applicants)
 
+/*
 app.listen(port, ip, function(){
     console.log('Server running on http://%s:%s', ip, port)
 })
+*/

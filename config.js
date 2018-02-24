@@ -1,18 +1,17 @@
-var mysqlHost = process.env.MYSQL_SERVICE_HOST,
-    mysqlPort = process.env.MYSQL_SERVICE_PORT
+var mssqlHost = process.env.MSSQL_SERVICE_HOST,
+    mssqlPort = process.env.MSSQL_SERVICE_PORT,
+    mssqlUer =  process.env.MSSQL_USER,
+    mssqlPwd =  process.env.MSSQL_SA_PASSWORD,
+    mssqlDb =  process.env.MSSQL_DATABASE
 
 var config = {
-	database: {
-		host:	   mysqlHost, 	// database host '172.30.83.49'
-		user: 	  'mhirota', 		// database username
-		password: 'password', 		// database password
-		port: 	   mysqlPort, 	         // MySQL port '3306'
-		db: 	  'sampledb' 		// database name
-	},
-	server: {
-		host: '127.0.0.1',
-		port: '3000'
-	}
+    database: {
+	host:	   mssqlHost,      // database host
+	user: 	   mssqlUer,       // database username
+	password:  mssqlPwd,       // database password
+	port: 	   mssqlPort,      // database port
+	db: 	   mssqlDb         // database name
+    }
 }
 
 module.exports = config
