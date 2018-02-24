@@ -25,11 +25,14 @@ app.get('/', function (req, res) {
         user:        config.database.user,
         password:    config.database.password,
         server:      config.database.host,
-        database:    config.database.db
+        database:    config.database.db,
+	port:        config.database.port
     };
 
     console.log('dbOptions-----')
     console.log(dbOptions)
+    console.log('process.env-----')
+    console.log(process.env)
 
     // connect to your database
     sql.connect(dbOptions, function (err) {
