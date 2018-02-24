@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
     console.log('process.env-----')
     console.log(process.env)
 
+/*
     // connect to your database
     sql.connect(dbOptions, function (err) {
         if (err) console.log(err);
@@ -52,6 +53,7 @@ app.get('/', function (req, res) {
 	    console.log(data)
 	});
     });
+*/
 });
 
 var server = app.listen(5000, function () {
