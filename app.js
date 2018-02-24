@@ -27,6 +27,9 @@ app.get('/', function (req, res) {
         server:      config.database.host,
         database:    config.database.db,
 	port:        config.database.port
+	options: {
+	    encrypt: true
+	}
     };
 
     console.log('dbOptions-----')
