@@ -24,6 +24,7 @@ var dbOptions = {
     database: config.database.db
 }
 
+console.log('dbOptions--------')
 console.log(dbOptions)
 
 /**
