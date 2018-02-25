@@ -20,6 +20,8 @@ var sql = require("mssql")
 var config = require('./config')
 
 app.get('/', function (req, res) {
+    sql.close()
+
     // config for your database
     var dbOptions = {
         user:        config.database.user,
@@ -37,9 +39,10 @@ app.get('/', function (req, res) {
     console.log('process.env-----')
     console.log(process.env)
 
+/*
     // connect to your database
     sql.connect(dbOptions, function (err) {
-        if (err) console.log(err);
+	if (err) console.log(err);
 	console.log('DB connection error')
 /*
         // create Request object
@@ -56,7 +59,7 @@ app.get('/', function (req, res) {
 	    console.log(data)
 	});
 */
-    });
+//});
 });
 
 var server = app.listen(5000, function () {
