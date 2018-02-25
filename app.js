@@ -47,36 +47,22 @@ var connection = mssql.connect(dbOptions, function (err) {
 
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
+    var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb'
+    console.log('con')
+    console.log(con)
 
-    (async function () {
+    async () => {
 	try {
-            let pool = await sql.connect(config)
-            let result1 = await pool.request()
-	    //.input('input_parameter', sql.Int, value)
-		.query('select * from sampledb')
-
-	    console.logt('db connected2');
-            console.dir(result1)
-
-            // Stored procedure
-	    /*
-            let result2 = await pool.request()
-		.input('input_parameter', sql.Int, value)
-		.output('output_parameter', sql.VarChar(50))
-		.execute('procedure_name')
-
-            console.dir(result2)
-	    */
+            //const pool = await mssql.connect('mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb')
+	    const pool = await mssql.connect(con)
+            //const result = await mssql.query`select * from mytable where id = ${value}`
+            //console.dir(result)
+	    console.log('connecteddddd')
 	} catch (err) {
             // ... error checks
-	    console.log('ERROR');
+	    console.log('ERORR')
 	}
-    })()
-
-    sql.on('error', err => {
-	// ... error handler
-	console.log('ERROR2');
-    })
+    }
 })
 
 /**
