@@ -17,7 +17,7 @@ var myConnection  = require('express-myconnection')
  * Load the file/module and its values
  */
 
-var mssql = require("mssql")
+var mssql = require('mssql')
 var config = require('./config')
 
 // config for your database
@@ -38,31 +38,47 @@ console.log('process.env-----')
 console.log(process.env)
 
 // connect to mssql database
+/*
 var connection = mssql.connect(dbOptions, function (err) {
     if (err)
         throw err;
     console.log('mssql connected');
 });
-
+*/
 
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
-    var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb'
+    var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb?encrypt'
     console.log('con')
     console.log(con)
 
-    async () => {
-	try {
-            //const pool = await mssql.connect('mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb')
-	    const pool = await mssql.connect(con)
-            //const result = await mssql.query`select * from mytable where id = ${value}`
-            //console.dir(result)
-	    console.log('connecteddddd')
-	} catch (err) {
+    mssql.connect(dbOptions, err => {
+	// ... error checks
+	// Query
+	console.log('connected')
+	/*
+	new sql.Request().query('select 1 as number', (err, result) => {
             // ... error checks
-	    console.log('ERORR')
-	}
-    }
+
+            console.dir(result)
+	})
+
+	// Stored Procedure
+
+	new sql.Request()
+	    .input('input_parameter', sql.Int, value)
+	    .output('output_parameter', sql.VarChar(50))
+	    .execute('procedure_name', (err, result) => {
+		// ... error checks
+
+		console.dir(result)
+	    })
+*/
+    })
+    sql.on('error', err => {
+	// ... error handler
+	console.log('error')
+    })
 })
 
 /**
