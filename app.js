@@ -41,27 +41,42 @@ console.log(process.env)
 var connection = mssql.connect(dbOptions, function (err) {
     if (err)
         throw err;
+    console.log('mssql connected');
 });
 
 
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
-    var request = new db.Request();
-    request.query('select * from sampledb', function (err, result) {
-        if (err)
-            return next(err);
 
-	console.log('result---------------------------')
-	console.log(result)
-    });
-});
+    (async function () {
+	try {
+            let pool = await sql.connect(config)
+            let result1 = await pool.request()
+	    //.input('input_parameter', sql.Int, value)
+		.query('select * from sampledb')
 
-var server = app.listen(5000, function () {
-    console.log('Server is running..');
-});
+	    console.logt('db connected2');
+            console.dir(result1)
 
-app.listen(port, ip, function(){
-    console.log('Server running on http://%s:%s', ip, port)
+            // Stored procedure
+	    /*
+            let result2 = await pool.request()
+		.input('input_parameter', sql.Int, value)
+		.output('output_parameter', sql.VarChar(50))
+		.execute('procedure_name')
+
+            console.dir(result2)
+	    */
+	} catch (err) {
+            // ... error checks
+	    console.log('ERROR');
+	}
+    })()
+
+    sql.on('error', err => {
+	// ... error handler
+	console.log('ERROR2');
+    })
 })
 
 /**
