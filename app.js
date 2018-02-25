@@ -46,7 +46,7 @@ var connection = mssql.connect(dbOptions, function (err) {
 });
 */
 
-var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb?encrypt'
+var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+dbOptions.server+'/sampledb?encrypt'
 console.log('con')
 console.log(con)
 
