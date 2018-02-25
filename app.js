@@ -38,7 +38,7 @@ console.log('process.env-----')
 console.log(process.env)
 
 // connect to mssql database
-var connection = mssql.connect(dbConfig, function (err) {
+var connection = mssql.connect(dbOptions, function (err) {
     if (err)
         throw err;
 });
