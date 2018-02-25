@@ -46,6 +46,28 @@ var connection = mssql.connect(dbOptions, function (err) {
 });
 */
 
+var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb?encrypt'
+console.log('con')
+console.log(con)
+
+// connect to your database
+mssql.connect(dbOptions, function (err) {
+    if (err) console.log(err);
+    throw err
+
+    // create Request object
+    var request = new mssql.Request();
+
+    // query to the database and get the records
+    request.query('select * from Student', function (err, recordset) {
+
+        if (err) console.log(err)
+
+        // send records as a response
+        res.send(recordset);
+    });
+});
+
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
     var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb?encrypt'
