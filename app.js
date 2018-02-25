@@ -11,55 +11,49 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
  * for MySQL connections during request/response life cycle
  */ 
 var myConnection  = require('express-myconnection')
+
 /**
  * Store database credentials in a separate config.js file
  * Load the file/module and its values
  */
 
-var sql = require("mssql")
+var mssql = require("mssql")
 var config = require('./config')
 
+// config for your database
+var dbOptions = {
+    user:        config.database.user,
+    password:    config.database.password,
+    server:      config.database.host,
+    database:    config.database.db,
+    port:        config.database.port,
+    options: {
+        encrypt: true
+    }
+}
+
+console.log('dbOptions-----')
+console.log(dbOptions)
+console.log('process.env-----')
+console.log(process.env)
+
+// connect to mssql database
+var connection = mssql.connect(dbConfig, function (err) {
+    if (err)
+        throw err;
+});
+
+
 app.get('/', function (req, res) {
-    sql.close()
+    console.log('app.get"/"---------------------------')
+    var request = new db.Request();
+    request.query('select * from sampledb', function (err, result) {
+        if (err)
+            return next(err);
 
-    // config for your database
-    var dbOptions = {
-        user:        config.database.user,
-        password:    config.database.password,
-        server:      config.database.host,
-        database:    config.database.db,
-	port:        config.database.port,
-	options: {
-	    encrypt: true
-	}
-    };
-
-    console.log('dbOptions-----')
-    console.log(dbOptions)
-    console.log('process.env-----')
-    console.log(process.env)
-
-/*
-    // connect to your database
-    sql.connect(dbOptions, function (err) {
-	if (err) console.log(err);
-	console.log('DB connection error')
-/*
-        // create Request object
-        var request = new sql.Request();
-
-        // query to the database and get the records
-        request.query('select * from sampledb', function (err, data) {
-
-            if (err) console.log(err)
-
-            // send records as a response
-            //res.send(data);
-	    console.log('data---------')
-	    console.log(data)
-	});
-*/
-//});
+	console.log('result---------------------------')
+	console.log(result)
+    });
 });
 
 var server = app.listen(5000, function () {
