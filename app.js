@@ -27,9 +27,10 @@ var dbOptions = {
     password:    config.database.password, //config.database.password,
     server:      config.database.host,
     database:    config.database.db,
-    options: {
+/*    options: {
         encrypt: true
     }
+*/
 }
 
 console.log('dbOptions-----')
@@ -48,31 +49,17 @@ var connection = mssql.connect(dbOptions, function (err) {
 */
 
 //var con = 'mssql://+sa:T3stStr0ngP@ssW0rd@'+dbOptions.server+'/sampledb?encrypt'
+/*
 var con = 'mssql://'+dbOptions.user+':'+dbOptions.password+'@'+dbOptions.server+'/'+dbOptions.database.db
 console.log('con')
 console.log(con)
-
-const sql = require('mssql')
-
-async () => {
-    try {
-        //const pool = await sql.connect('mssql://username:password@localhost/database')
-	const pool = await sql.connect(con)
-        //const result = await sql.query`select * from mytable where id = ${value}`
-        //console.dir(result)
-    } catch (err) {
-        // ... error checks
-	console.log('error-------------------')
-    }
-}
-
+*/
 
 //connect to your database
-/*
 mssql.connect(dbOptions, function (err) {
     if (err) console.log(err);
     throw err
-
+/*
     // create Request object
     var request = new mssql.Request();
 
@@ -84,8 +71,12 @@ mssql.connect(dbOptions, function (err) {
         // send records as a response
         res.send(recordset);
     });
-});
 */
+});
+
+mssql.on('error', err => {
+    // ... error handler
+})
 
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
