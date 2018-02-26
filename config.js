@@ -1,6 +1,6 @@
 var mssqlHost = process.env.MSSQL_RHEL_TEST_MH_SERVICE_HOST,
     mssqlPort = process.env.MSSQL_RHEL_TEST_MH_SERVICE_PORT,
-    mssqlUer =  process.env.MSSQL_USER,
+    mssqlUer =  process.env.MSSQL_USER.toString(),
     mssqlPwd =  process.env.MSSQL_SA_PASSWORD,
     mssqlDb =  process.env.MSSQL_DATABASE
 
