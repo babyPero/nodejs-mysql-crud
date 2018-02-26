@@ -69,6 +69,7 @@ mssql.connect(dbOptions, function (err) {
         // send records as a response
 	console.log('dataaaa')
 	console.log(recordset)
+	console.dir(recordset)
         res.send(recordset);
     });
 });
@@ -80,7 +81,8 @@ mssql.on('error', err => {
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
 
-    request.query('SELECT * FROM jobpostings', function (err, recordset) {
+    var request = new mssql.Request();
+        request.query('SELECT * FROM jobpostings', function (err, recordset) {
         if (err) console.log(err)
         // send records as a response
         console.log('dataaaa')
