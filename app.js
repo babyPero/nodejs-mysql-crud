@@ -17,13 +17,14 @@ var myConnection  = require('express-myconnection')
  * Load the file/module and its values
  */
 
+var async = require('async')
 var mssql = require('mssql')
 var config = require('./config')
 
 // config for your database
 var dbOptions = {
     user:        config.database.user,
-    password:    'T3stStr0ngP@ssW0rd', //config.database.password,
+    password:    config.database.password, //config.database.password,
     server:      config.database.host,
     database:    config.database.db,
     options: {
@@ -46,11 +47,28 @@ var connection = mssql.connect(dbOptions, function (err) {
 });
 */
 
-var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+dbOptions.server+'/sampledb?encrypt'
+//var con = 'mssql://+sa:T3stStr0ngP@ssW0rd@'+dbOptions.server+'/sampledb?encrypt'
+var con = 'mssql://'+dbOptions.user+':'+dbOptions.password+'@'+dbOptions.server+'/'+dbOptions.database.db
 console.log('con')
 console.log(con)
 
-// connect to your database
+const sql = require('mssql')
+
+async () => {
+    try {
+        //const pool = await sql.connect('mssql://username:password@localhost/database')
+	const pool = await sql.connect(con)
+        //const result = await sql.query`select * from mytable where id = ${value}`
+        //console.dir(result)
+    } catch (err) {
+        // ... error checks
+	console.log('error-------------------')
+    }
+}
+
+
+//connect to your database
+/*
 mssql.connect(dbOptions, function (err) {
     if (err) console.log(err);
     throw err
@@ -67,6 +85,7 @@ mssql.connect(dbOptions, function (err) {
         res.send(recordset);
     });
 });
+*/
 
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
