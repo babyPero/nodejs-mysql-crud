@@ -23,7 +23,7 @@ var config = require('./config')
 // config for your database
 var dbOptions = {
     user:        config.database.user,
-    password:    config.database.password,
+    password:    'T3stStr0ngP@ssW0rd', //config.database.password,
     server:      config.database.host,
     database:    config.database.db,
     options: {
