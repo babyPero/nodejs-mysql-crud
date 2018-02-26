@@ -23,9 +23,9 @@ var config = require('./config')
 // config for your database
 var dbOptions = {
     user:        config.database.user,
-    password:    config.database.password, //config.database.password,
-    server:      config.database.host,
-    database:    config.database.db,
+    password:    config.database.password //config.database.password,
+    //server:      config.database.host,
+    //database:    config.database.db,
 /*    options: {
         encrypt: true
     }
