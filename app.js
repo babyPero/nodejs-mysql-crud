@@ -25,7 +25,7 @@ var dbOptions = {
     user:        config.database.user,
     password:    config.database.password,
     server:      config.database.host,
-    database:    config.database.db
+    database:    config.database.db,
     options: {
         encrypt: true
     }
