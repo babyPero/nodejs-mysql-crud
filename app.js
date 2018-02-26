@@ -31,11 +31,13 @@ var dbOptions = {
     }
 }
 
+/*
 console.log('dbOptions-----')
 console.log(dbOptions)
 console.log('process.env-----')
 console.log(process.env)
 console.log('end of process.env-----')
+*/
 
 // connect to mssql database
 /*
@@ -65,6 +67,7 @@ mssql.connect(dbOptions, function (err) {
     request.query('SELECT * FROM jobpostings', function (err, recordset) {
         if (err) console.log(err)
         // send records as a response
+	console.log('dataaaa')
 	console.log(recordset)
         res.send(recordset);
     });
@@ -76,37 +79,14 @@ mssql.on('error', err => {
 
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
-    var con = 'mssql://sa:T3stStr0ngP@ssW0rd@'+server+'/sampledb?encrypt'
-    console.log('con')
-    console.log(con)
 
-    mssql.connect(dbOptions, err => {
-	// ... error checks
-	// Query
-	console.log('connected')
-	/*
-	new sql.Request().query('select 1 as number', (err, result) => {
-            // ... error checks
-
-            console.dir(result)
-	})
-
-	// Stored Procedure
-
-	new sql.Request()
-	    .input('input_parameter', sql.Int, value)
-	    .output('output_parameter', sql.VarChar(50))
-	    .execute('procedure_name', (err, result) => {
-		// ... error checks
-
-		console.dir(result)
-	    })
-*/
-    })
-    sql.on('error', err => {
-	// ... error handler
-	console.log('error')
-    })
+    request.query('SELECT * FROM jobpostings', function (err, recordset) {
+        if (err) console.log(err)
+        // send records as a response
+        console.log('dataaaa')
+        console.log(recordset)
+        res.send(recordset);
+    });
 })
 
 /**
