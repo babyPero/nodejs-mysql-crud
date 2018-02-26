@@ -57,19 +57,17 @@ console.log(con)
 mssql.connect(dbOptions, function (err) {
     if (err) console.log(err);
     throw err
-/*
+
     // create Request object
     var request = new mssql.Request();
 
     // query to the database and get the records
-    request.query('select * from Student', function (err, recordset) {
-
+    request.query('SELECT * FROM jobpostings', function (err, recordset) {
         if (err) console.log(err)
-
         // send records as a response
+	console.log(recordset)
         res.send(recordset);
     });
-*/
 });
 
 mssql.on('error', err => {
