@@ -181,8 +181,7 @@ app.use('/', index)
 app.use('/postings', postings)
 app.use('/applicants', applicants)
 
-/*
 app.listen(port, ip, function(){
     console.log('Server running on http://%s:%s', ip, port)
 })
-*/
+
