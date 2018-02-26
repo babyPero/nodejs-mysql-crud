@@ -4,7 +4,7 @@ var app = express()
 app.get('/', function(req, res) {
     // render to views/index.ejs template file
     res.render('index', {title: 'My Node.js Application'})
-
+/*
     //Database setup - create tables
     var jobpostingsDb_init = 'CREATE TABLE IF NOT EXISTS jobpostings('
 	+ 'job_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,'
@@ -45,6 +45,7 @@ app.get('/', function(req, res) {
             }
         })
     })
+*/
 })
 
 /** 
