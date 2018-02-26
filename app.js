@@ -55,7 +55,6 @@ console.log('con')
 console.log(con)
 */
 
-/* here
 //connect to your database
 mssql.connect(dbOptions, function (err) {
     if (err) console.log(err);
@@ -79,6 +78,7 @@ mssql.on('error', err => {
     // ... error handler
 })
 
+/*here
 app.get('/', function (req, res) {
     console.log('app.get"/"---------------------------')
 
@@ -91,8 +91,8 @@ app.get('/', function (req, res) {
         res.send(recordset);
     });
 })
-here
 */
+
 /**
  * 3 strategies can be used
  * single: Creates single database connection which is never closed.
