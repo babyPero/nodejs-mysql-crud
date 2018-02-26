@@ -17,7 +17,6 @@ var myConnection  = require('express-myconnection')
  * Load the file/module and its values
  */
 
-var async = require('async')
 var mssql = require('mssql')
 var config = require('./config')
 
