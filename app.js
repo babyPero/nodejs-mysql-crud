@@ -25,8 +25,7 @@ var dbOptions = {
     user:        config.database.user,
     password:    config.database.password,
     server:      config.database.host,
-    database:    config.database.db,
-    port:        config.database.port,
+    database:    config.database.db
     options: {
         encrypt: true
     }
@@ -36,6 +35,7 @@ console.log('dbOptions-----')
 console.log(dbOptions)
 console.log('process.env-----')
 console.log(process.env)
+console.log('end of process.env-----')
 
 // connect to mssql database
 /*
